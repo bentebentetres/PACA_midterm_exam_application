@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $theme }} List</title>
+    <title>{{ $theme ?? 'Default Title' }} List</title> <!-- Use ?? to prevent errors -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,9 +30,9 @@
     </style>
 </head>
 <body>
-    <h1>{{ $theme }} List</h1>
+    <h1>{{ $theme ?? 'Default Theme' }} List</h1> <!-- Use ?? to prevent errors -->
     <ul>
-        @foreach($movies as $movie)
+        @foreach($movies ?? [] as $movie) <!-- Use ?? to prevent errors -->
             <li>{{ $movie }}</li>
         @endforeach
     </ul>
